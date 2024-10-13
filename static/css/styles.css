@@ -1,0 +1,333 @@
+/* Estilos Gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.wrapper {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Sidebar */
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #f8f9fa;
+    color: #333;
+    transition: all 0.3s;
+    overflow-y: auto;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    min-height: 30px;
+    background: #007BFF;
+    color: #fff;
+    position: relative;
+}
+
+#sidebar .sidebar-header h3 {
+    margin: 0;
+}
+
+#sidebar .sidebar-header button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.chat-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chat-list li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+.chat-list li.active {
+    background-color: #e9ecef;
+}
+
+.chat-list li a {
+    color: #333;
+    text-decoration: none;
+}
+
+.new-chat-form {
+    padding: 15px 20px;
+    border-top: 1px solid #ccc;
+}
+
+.new-chat-form input {
+    width: calc(100% - 100px);
+    padding: 10px;
+    margin-right: 5px;
+    font-size: 1em;
+}
+
+.new-chat-form button {
+    padding: 10px;
+    background-color: #007BFF;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Conteúdo Principal */
+#content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+}
+
+.chat-header {
+    padding: 20px;
+    width: 50%; /* Define a largura da área de chat */
+    color: #434343;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.message-history {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #fff;
+    width: 50%; /* Define a largura da área de chat */
+    overflow-y: auto; /* Certifique-se de que o overflow vertical está ativado */
+    /* Estilos para o Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+.message-history::-webkit-scrollbar {
+    width: 8px; /* Largura da barra vertical */
+}
+
+.message-history::-webkit-scrollbar-track {
+    background: transparent; /* Fundo do track */
+}
+
+.message-history::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2); /* Cor do thumb */
+    border-radius: 4px; /* Cantos arredondados */
+    border: none; /* Sem borda */
+}
+
+.message-history .message {
+    margin-bottom: 15px;
+    display: flex;
+    max-width: 100%;
+}
+
+.message .message-text {
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 100%;
+}
+
+.user-message {
+    justify-content: flex-end; /* Alinha à direita */
+}
+
+.user-message .message-text {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.agent-message {
+    justify-content: flex-start; /* Alinha à esquerda */
+}
+
+.agent-message .message-text {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.agent-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    flex-shrink: 0; /* Impede que o ícone seja redimensionado */
+}
+
+.agent-icon svg {
+    width: 25px;
+    height: 25px;
+    padding: 2px;
+    border-radius: 50%;
+    /* Aplica o gradiente radial para o efeito de moeda */
+    background: radial-gradient(circle at top left, #ffffff, #c0c0c0);
+    /* Adiciona sombra interna para profundidade */
+    box-shadow: inset -2px -2px 5px rgba(0,0,0,0.3), inset 2px 2px 5px rgba(255,255,255,0.5);
+    /* Opcional: adiciona um brilho ao redor */
+    /*box-shadow: 0 0 10px rgba(255,255,255,0.5);*/
+}
+
+
+.message-form {
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    width: 50%; /* Define a largura da área de chat */
+}
+
+.message-form input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    font-size: 1em;
+    border-color: transparent;
+    border-radius:  15px;
+    background-color: #f1f1f1;
+}
+
+.message-form button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    border: none;
+    color: #fff;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+/* Se nenhum chat estiver selecionado */
+.no-chat {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%; /* Define a largura da área de chat */
+}
+
+.start-chat-form {
+    width: 100%;
+    max-width: 500px; /* Ajuste conforme necessário */
+    margin: 0 auto;
+}
+
+.input-with-button {
+    position: relative;
+    width: 100%;
+}
+
+.input-with-button textarea {
+    width: 100%;
+    padding: 10px 15px 10px 15px; /* Espaçamento interno */
+    padding-right: 50px; /* Espaço para o botão */
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box;
+    resize: none; /* Impede redimensionamento manual */
+    overflow: hidden; /* Esconde a barra de rolagem até ser necessário */
+    min-height: 40px; /* Altura mínima */
+    max-height: 300px; /* Altura máxima */
+    scrollbar-width: thin; /* Define a barra como fina */
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent; /* Cor do thumb e do track */
+}
+
+/* Estilos para barras de rolagem em navegadores WebKit (Chrome, Safari, Edge) */
+.input-with-button textarea::-webkit-scrollbar {
+    width: 8px; /* Largura da barra vertical */
+}
+
+.input-with-button textarea::-webkit-scrollbar-track {
+    background: transparent; /* Fundo do track */
+}
+
+.input-with-button textarea::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2); /* Cor do thumb */
+    border-radius: 4px; /* Cantos arredondados */
+    border: none; /* Sem borda */
+}
+
+
+.input-with-button button {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.input-with-button button svg {
+    width: 24px;
+    height: 24px;
+    fill: #007BFF;
+}
+
+.input-with-button button:hover svg {
+    fill: #0056b3;
+}
+/* Responsividade */
+@media (max-width: 768px) {
+    #sidebar {
+        min-width: 0;
+        max-width: 100%;
+        position: absolute;
+        z-index: 1000;
+        height: 100%;
+        margin-left: -250px;
+    }
+
+    #sidebar.active {
+        margin-left: 0;
+    }
+
+    #content {
+        align-items: stretch; /* Estica o conteúdo para ocupar toda a largura */
+    }
+
+    .chat-header,
+    .message-history,
+    .message-form,
+    .no-chat {
+        width: 100%; /* Ocupa toda a largura disponível em dispositivos móveis */
+    }
+}
+
+
+/* Botão para alternar a sidebar */
+.toggle-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.toggle-btn button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+.toggle-btn button:focus {
+    outline: none;
+}
+
+.toggle-btn svg {
+    width: 32px;
+    height: 32px;
+}
+
